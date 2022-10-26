@@ -1,7 +1,10 @@
-export const CharacterList = () => {
-  const [characterList, setCharacterList] = React.useState([]);
+import React, { useState, useEffect } from "react";
+import Card from "./Card";
 
-  React.useEffect(() => {
+export const CharacterList = () => {
+  const [characterList, setCharacterList] = useState([]);
+
+  useEffect(() => {
     const fetchData = async () => {
       const rawData = await fetch("https://rickandmortyapi.com/api/character/");
       const jsonData = await rawData.json();
